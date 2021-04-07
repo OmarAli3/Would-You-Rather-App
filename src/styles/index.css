@@ -21,9 +21,9 @@ html,
 }
 
 /*Just for debugging*/
-div {
+/* div {
     border: 1px solid black;
-}
+} */
 
 .App {
     text-align: center;
@@ -42,10 +42,12 @@ div {
 .nav {
     grid-area: nav;
     flex-wrap: wrap;
+    border-bottom: 1px solid blue;
 }
 
-ul{
+ul {
     padding: 0;
+    margin: 0;
 }
 li {
     list-style-type: none;
@@ -55,4 +57,20 @@ li {
 nav > ul {
     display: flex;
     justify-content: center;
+}
+.question-nav li:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+.question-nav li {
+    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.active-li{
+    background-color: #f1f1f1;
+}
+
+.dashboard-list {
+    background-color: #f1f1f1;
 }
