@@ -16,6 +16,14 @@ code {
 /* div {
     border: 1px solid black;
 } */
+html,
+body,
+#root,
+.App,
+.dashboard,
+.dashboard-list {
+    height: 100%;
+}
 
 .App {
     text-align: center;
@@ -51,9 +59,11 @@ nav > ul {
     display: flex;
     justify-content: center;
 }
+nav li {
+    cursor: pointer;
+}
 
 .question-nav li:hover {
-    cursor: pointer;
     border-top: 1px solid #888888;
     border-left: 1px solid #888888;
     border-right: 1px solid #888888;
@@ -61,6 +71,8 @@ nav > ul {
 
 .question-nav {
     background-color: lightgray;
+    border-left: 2px solid blue;
+    border-right: 2px solid blue;
 }
 
 .question-nav li {
@@ -76,6 +88,8 @@ nav > ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-left: 2px solid blue;
+    border-right: 2px solid blue;
 }
 
 img {

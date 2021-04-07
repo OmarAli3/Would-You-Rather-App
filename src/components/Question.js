@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 
 class Question extends Component {
-    componentDidMount() {
-        console.log(this.props.question);
-    }
     render() {
         const { question } = this.props;
         return (
@@ -16,7 +13,7 @@ class Question extends Component {
                 </div>
                 <div className="question-options">
                     <span>
-                        {`Would you rather ${question.optionOne.text} or ${question.optionTwo.text}`}
+                        {`Would you rather ${question.optionOne.text} or ${question.optionTwo.text}?`}
                     </span>
                     <button className="btn">View datails</button>
                 </div>

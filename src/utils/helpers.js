@@ -20,3 +20,18 @@ export const formatQuestion = (question, author, authedUser) => {
         authedUserVote: hasVoted ? answers[id] : "",
     };
 };
+
+export const formatUsers = (users) =>
+    users
+        ? Object.keys(users).map((id) => {
+              const answeredQuestions = Object.keys(users[id].answers).length;
+              const createdQuestions = users[id].questions.length;
+              return {
+                  name: users[id].name,
+                  avatarURL: users[id].avatarURL,
+                  answeredQuestions,
+                  createdQuestions,
+                  score: answeredQuestions + createdQuestions,
+              };
+          })
+        : [];

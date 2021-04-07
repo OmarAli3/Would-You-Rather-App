@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Navbar from "./Navbar";
 import Dashboard from "./Dashboard";
+import Leaderboard from "./Leaderboard";
 
 class App extends Component {
     componentDidMount() {
@@ -12,7 +13,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
-                <Dashboard />
+                <Leaderboard />
             </div>
         );
     }
