@@ -1,13 +1,13 @@
-export const fromatQuestion = (question, author, authedUser) => {
-    const { id, timestamp, optionOne, optionTwo } = question;
-    const { name, avatarUrl } = author;
-    const { answers } = authedUser;
-    const hasVoted = Object.keys(answers).includes(id);
+export const formatQuestion = (question, author, authedUser) => {
+    const { id, optionOne, optionTwo } = question;
+    const { name, avatarURL } = author;
+    const answerIds = authedUser ? Object.keys(authedUser.answers) : [];
+    const answers = authedUser ? authedUser.answers : {};
+    const hasVoted = answerIds.includes(id);
     return {
         name,
         id,
-        timestamp,
-        avatarUrl,
+        avatarURL,
         optionOne: {
             votes: optionOne.votes.length,
             text: optionOne.text,

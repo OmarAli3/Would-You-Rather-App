@@ -1,5 +1,6 @@
 import { React, Component } from "react";
 import { connect } from "react-redux";
+import Question from "./Question";
 
 class Dashboard extends Component {
     state = {
@@ -33,10 +34,10 @@ class Dashboard extends Component {
                 <ul className="dashboard-list">
                     {this.state.answeredList
                         ? this.props.answeredQuetionIds.map((id) => (
-                              <li key={id}>{id}</li>
+                              <Question key={id} id={id} />
                           ))
                         : this.props.unansweredQuetionIds.map((id) => (
-                              <li key={id}>{id}</li>
+                              <Question key={id} id={id} />
                           ))}
                 </ul>
             </div>
