@@ -180,21 +180,20 @@ img {
 
 .leader-info > span {
     text-align: left;
+    margin: 5px;
 }
 
 .info1 {
     grid-area: n;
-    margin: 2px;
     font-weight: bold;
 }
 
 .info3 {
     grid-area: an;
-    
 }
-.info2 , .info4{
+.info2,
+.info4 {
     border-right: 1px solid lightblue;
-    margin: 5px;
 }
 
 .info5 {
@@ -228,4 +227,36 @@ img {
 }
 .bronze {
     background-color: #cd7f32;
+}
+
+.new-question {
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 0 10px;
+    box-shadow: 5px 5px 5px 5px #888888;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.new-question-header {
+    text-align: left;
+    font-weight: bold;
+    background-color: darkgray;
+    padding: 5px;
+}
+
+.new-question-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-question-form >input{
+    width: 80%;
+    border-radius: 5px;
+}
+
+.new-question-form >button{
+    margin: 5px;
 }

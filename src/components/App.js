@@ -4,6 +4,7 @@ import { handleInitialData } from "../actions/shared";
 import Navbar from "./Navbar";
 import Dashboard from "./Dashboard";
 import Leaderboard from "./Leaderboard";
+import NewQuestion from './NewQuestion'
 
 class App extends Component {
     componentDidMount() {
@@ -13,7 +14,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
-                <Leaderboard />
+                <NewQuestion />
             </div>
         );
     }
