@@ -1,17 +1,58 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+body,
+html,
+#root,
+.App,
+.dashboard {
+    height: 100%;
+}
+
+/*Just for debugging*/
+div {
+    border: 1px solid black;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+        "nav nav nav"
+        ". dashboard .";
+}
+
+.dashboard {
+    grid-area: dashboard;
+}
+
+.nav {
+    grid-area: nav;
+    flex-wrap: wrap;
+}
+
+ul{
+    padding: 0;
+}
+li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: center;
 }
