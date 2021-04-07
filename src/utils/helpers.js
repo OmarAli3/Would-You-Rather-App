@@ -27,6 +27,7 @@ export const formatUsers = (users) =>
               const answeredQuestions = Object.keys(users[id].answers).length;
               const createdQuestions = users[id].questions.length;
               return {
+                  id,
                   name: users[id].name,
                   avatarURL: users[id].avatarURL,
                   answeredQuestions,
