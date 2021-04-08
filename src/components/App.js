@@ -8,6 +8,7 @@ import NewQuestion from "./NewQuestion";
 import QuestionPage from "./QuestionPage";
 import LoadingBar from "react-redux-loading-bar";
 import LoginPage from "./LoginPage";
+import NotFound from "./NotFound";
 
 class App extends Component {
     componentDidMount() {
@@ -17,7 +18,7 @@ class App extends Component {
         return (
             <div className="App">
                 <LoadingBar style={{ backgroundColor: "blue" }} />
-                <LoginPage />
+                <NotFound />
                 {/*<Navbar />*/}
             </div>
         );

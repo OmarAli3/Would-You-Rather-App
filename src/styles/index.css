@@ -308,7 +308,7 @@ img {
     justify-content: flex-start;
     height: fit-content;
     width: 70%;
-    overflow:visible;
+    overflow: visible;
 }
 
 .login-header {
@@ -323,15 +323,25 @@ img {
     width: 80%;
     justify-self: center;
 }
- .select{
-     margin: 10px;
+.select {
+    margin: 10px;
 }
 
-.login-icon{
+.login-icon {
     width: 100px;
     height: 100px;
 }
-.login-form button{
+.login-form button {
     margin: auto;
     margin-bottom: 10px;
 }
+
+.not-found {
+    color: darkgray;
+}
+
+.not-found-icon {
+    width: 150px;
+    height: 150px;
+}
+
