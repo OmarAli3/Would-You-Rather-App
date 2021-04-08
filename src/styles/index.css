@@ -276,7 +276,6 @@ img {
 .light-voted {
     background-color: darkgray;
     border-radius: 10px;
-    
 }
 
 .voted > span::after {
@@ -285,6 +284,54 @@ img {
     color: red;
     border-radius: 70%;
 }
-.voted  .light-voted {
+.voted .light-voted {
     background-color: lightgreen;
+}
+
+.login-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.login-option > img {
+    height: 40px;
+}
+.login-option > span {
+    margin: 5px;
+}
+
+.login {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: fit-content;
+    width: 70%;
+    overflow:visible;
+}
+
+.login-header {
+    background-color: darkgray;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form {
+    margin-top: 10px;
+    width: 80%;
+    justify-self: center;
+}
+ .select{
+     margin: 10px;
+}
+
+.login-icon{
+    width: 100px;
+    height: 100px;
+}
+.login-form button{
+    margin: auto;
+    margin-bottom: 10px;
 }
