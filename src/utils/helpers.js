@@ -1,9 +1,17 @@
 export const formatQuestion = (question, author, authedUser) => {
     const { id, optionOne, optionTwo } = question;
     const { name, avatarURL } = author;
-    const answerIds = authedUser ? Object.keys(authedUser.answers) : [];
-    const answers = authedUser ? authedUser.answers : {};
-    const hasVoted = answerIds.includes(id);
+    let answer = "";
+    let hasVoted = false;
+    if (optionOne.votes.includes(authedUser)) {
+        answer = "optionOne";
+        hasVoted = true;
+    }
+    if (optionTwo.votes.includes(authedUser)) {
+        answer = "optionTwo";
+        hasVoted = true;
+    }
+    console.log(hasVoted)
     return {
         name,
         id,
@@ -17,7 +25,7 @@ export const formatQuestion = (question, author, authedUser) => {
             text: optionTwo.text,
         },
         hasVoted,
-        authedUserVote: hasVoted ? answers[id] : "",
+        authedUserVote: answer,
     };
 };
 

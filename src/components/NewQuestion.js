@@ -9,7 +9,6 @@ class NewQuestion extends Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        //todo: Add question to store
         const { dispatch } = this.props;
         const { option1, option2 } = this.state;
         if (!option1.trim()) return alert("option one can't be empty");

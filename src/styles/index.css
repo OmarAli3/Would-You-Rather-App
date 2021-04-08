@@ -252,11 +252,39 @@ img {
     align-items: center;
 }
 
-.new-question-form >input{
+.new-question-form > input {
     width: 80%;
     border-radius: 5px;
 }
 
-.new-question-form >button{
+.new-question-form > button {
     margin: 5px;
+}
+
+.option-one,
+.option-two {
+    margin: 2px;
+    border: 1px solid green;
+    width: 100%;
+}
+.progress-bar {
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: 2px;
+    display: flex;
+}
+.light-voted {
+    background-color: darkgray;
+    border-radius: 10px;
+    
+}
+
+.voted > span::after {
+    content: "✓";
+    background-color: green;
+    color: red;
+    border-radius: 70%;
+}
+.voted  .light-voted {
+    background-color: lightgreen;
 }

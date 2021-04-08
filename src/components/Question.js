@@ -22,11 +22,14 @@ class Question extends Component {
     }
 }
 
-const mapStatetToProps = ({ questions, authedUser, users }, { id }) => ({
-    question: formatQuestion(
-        questions[id],
-        users[questions[id].author],
-        authedUser ? users[authedUser] : null
-    ),
-});
-export default connect(mapStatetToProps)(Question);
+const mapStateToProps = ({ questions, authedUser, users }, {id}) => {
+    if (!questions || !authedUser || !users) return { question: null };
+    return {
+        question: formatQuestion(
+            questions[id],
+            users[questions[id].author],
+            authedUser
+        ),
+    };
+};
+export default connect(mapStateToProps)(Question);
