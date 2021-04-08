@@ -1,4 +1,5 @@
 import { saveQuestion, saveQuestionAnswer } from "../utils/api";
+import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 export const RECIEVE_QUESTIONS = "RECIEVE_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
@@ -20,12 +21,15 @@ export const handleAddQuestion = (optionOneText, optionTwoText) => (
     getState
 ) => {
     const { authedUser } = getState();
-    //todo: show a loading page
+    dispatch(showLoading());
     return saveQuestion({
         author: authedUser,
         optionOneText,
         optionTwoText,
-    }).then((question) => dispatch(addQuestion(question)));
+    }).then((question) => {
+        dispatch(addQuestion(question));
+        dispatch(hideLoading());
+    });
 };
 
 const addAnswer = (qid, authedUser, answer) => ({
@@ -45,7 +49,7 @@ const removeAnswer = (qid, authedUser, answer) => ({
 export const handleAddAnswer = (qid, answer) => (dispatch, getState) => {
     const { authedUser } = getState();
     dispatch(addAnswer(qid, authedUser, answer));
-    return saveQuestionAnswer({authedUser, qid, answer}).catch((e) => {
+    return saveQuestionAnswer({ authedUser, qid, answer }).catch((e) => {
         console.log(e);
         dispatch(removeAnswer(qid, authedUser, answer));
         alert("Error saving the answer. Try again,please");

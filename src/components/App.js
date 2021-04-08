@@ -6,6 +6,7 @@ import Dashboard from "./Dashboard";
 import Leaderboard from "./Leaderboard";
 import NewQuestion from "./NewQuestion";
 import QuestionPage from "./QuestionPage";
+import LoadingBar from "react-redux-loading-bar";
 
 class App extends Component {
     componentDidMount() {
@@ -14,6 +15,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <LoadingBar style={{ "background-color": "blue" }} />
                 <Navbar />
                 <QuestionPage
                     match={{ params: { id: "am8ehyc8byjqgar0jgpub9" } }}
