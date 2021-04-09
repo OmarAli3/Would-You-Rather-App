@@ -1,8 +1,13 @@
 import { React, Component } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 
 class Question extends Component {
+    handleViewDetails = (e, id) => {
+        e.preventDefault();
+        this.props.history.push(`/question/${id}`);
+    };
     render() {
         const { question } = this.props;
         return (
@@ -15,14 +20,19 @@ class Question extends Component {
                     <span>
                         {`Would you rather ${question.optionOne.text} or ${question.optionTwo.text}?`}
                     </span>
-                    <button className="btn">View datails</button>
+                    <button
+                        className="btn"
+                        onClick={(e) => this.handleViewDetails(e, question.id)}
+                    >
+                        View datails
+                    </button>
                 </div>
             </li>
         );
     }
 }
 
-const mapStateToProps = ({ questions, authedUser, users }, {id}) => {
+const mapStateToProps = ({ questions, authedUser, users }, { id }) => {
     if (!questions || !authedUser || !users) return { question: null };
     return {
         question: formatQuestion(
@@ -32,4 +42,4 @@ const mapStateToProps = ({ questions, authedUser, users }, {id}) => {
         ),
     };
 };
-export default connect(mapStateToProps)(Question);
+export default withRouter(connect(mapStateToProps)(Question));

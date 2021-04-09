@@ -2,6 +2,7 @@ import { React, Component } from "react";
 import { connect } from "react-redux";
 import { formatUsers } from "../utils/helpers";
 import Leader from "./Leader";
+import RedirectLogin from "./RedirectLogin";
 
 class Leaderboard extends Component {
     render() {
@@ -11,11 +12,13 @@ class Leaderboard extends Component {
             2: "bronze",
         };
         return (
-            <div className="dashboard leaderboard ">
-                {this.props.users.map((user, idx) => (
-                    <Leader prize={prize[idx]} key={user.id} {...user} />
-                ))}
-            </div>
+            <RedirectLogin>
+                <div className="dashboard leaderboard ">
+                    {this.props.users.map((user, idx) => (
+                        <Leader prize={prize[idx]} key={user.id} {...user} />
+                    ))}
+                </div>
+            </RedirectLogin>
         );
     }
 }

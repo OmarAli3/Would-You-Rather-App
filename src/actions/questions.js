@@ -1,4 +1,5 @@
 import { saveQuestion, saveQuestionAnswer } from "../utils/api";
+import { updateUserQuestions, addUserAnswer, removeUserAnswer } from "./users";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 export const RECIEVE_QUESTIONS = "RECIEVE_QUESTIONS";
@@ -28,6 +29,7 @@ export const handleAddQuestion = (optionOneText, optionTwoText) => (
         optionTwoText,
     }).then((question) => {
         dispatch(addQuestion(question));
+        dispatch(updateUserQuestions(authedUser, question.id));
         dispatch(hideLoading());
     });
 };
@@ -49,9 +51,11 @@ const removeAnswer = (qid, authedUser, answer) => ({
 export const handleAddAnswer = (qid, answer) => (dispatch, getState) => {
     const { authedUser } = getState();
     dispatch(addAnswer(qid, authedUser, answer));
+    dispatch(addUserAnswer(authedUser, qid, answer));
     return saveQuestionAnswer({ authedUser, qid, answer }).catch((e) => {
         console.log(e);
         dispatch(removeAnswer(qid, authedUser, answer));
+        dispatch(removeUserAnswer(authedUser, qid, answer));
         alert("Error saving the answer. Try again,please");
     });
 };

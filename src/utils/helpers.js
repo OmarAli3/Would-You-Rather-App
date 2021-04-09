@@ -1,5 +1,5 @@
 export const formatQuestion = (question, author, authedUser) => {
-    const { id, optionOne, optionTwo } = question;
+    const { id, optionOne, optionTwo, timestamp } = question;
     const { name, avatarURL } = author;
     let answer = "";
     let hasVoted = false;
@@ -11,10 +11,10 @@ export const formatQuestion = (question, author, authedUser) => {
         answer = "optionTwo";
         hasVoted = true;
     }
-    console.log(hasVoted)
     return {
         name,
         id,
+        timestamp,
         avatarURL,
         optionOne: {
             votes: optionOne.votes.length,

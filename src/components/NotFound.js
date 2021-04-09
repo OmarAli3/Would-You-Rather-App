@@ -1,4 +1,5 @@
 import { React } from "react";
+import { Link } from "react-router-dom";
 import { ImSad } from "react-icons/im";
 
 const NotFound = (props) => {
@@ -12,7 +13,7 @@ const NotFound = (props) => {
                 occurred.
             </p>
             <p>
-                Click <a href="/">here</a> to go home
+                Click <Link to="/">here</Link> to go home
             </p>
         </div>
     );

@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Navbar from "./Navbar";
@@ -16,11 +17,20 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="App">
-                <LoadingBar style={{ backgroundColor: "blue" }} />
-                <NotFound />
-                {/*<Navbar />*/}
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <LoadingBar />
+                    <Navbar />
+                    <Switch>
+                        <Route exact path="/" component={Dashboard} />
+                        <Route path="/leaderboard" component={Leaderboard} />
+                        <Route path="/add" component={NewQuestion} />
+                        <Route path="/question/:id" component={QuestionPage} />
+                        <Route path="/login" component={LoginPage} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
         );
     }
 }

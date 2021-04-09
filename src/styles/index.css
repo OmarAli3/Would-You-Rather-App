@@ -41,8 +41,17 @@ body,
 
 .nav {
     grid-area: nav;
-    flex-wrap: wrap;
     border-bottom: 1px solid blue;
+    background-color: rgb(160, 150, 230);
+}
+
+#username {
+    margin-left: auto;
+}
+
+.active-nav {
+    background-color: white;
+    box-shadow: 0px 10px 0px 10px white;
 }
 
 ul {
@@ -50,6 +59,10 @@ ul {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 li {
     list-style-type: none;
     padding: 10px;
@@ -58,15 +71,28 @@ li {
 nav > ul {
     display: flex;
     justify-content: center;
+    align-content: flex-start;
+    height: 100%;
 }
-nav li {
-    cursor: pointer;
+
+.nav li {
+    padding: 0;
+    margin: 5px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
 }
 
 .question-nav li:hover {
     border-top: 1px solid #888888;
     border-left: 1px solid #888888;
     border-right: 1px solid #888888;
+    cursor: pointer;
 }
 
 .question-nav {
@@ -345,3 +371,6 @@ img {
     height: 150px;
 }
 
+.profile-pic {
+    height: 40px;
+}

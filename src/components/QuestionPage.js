@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import { handleAddAnswer } from "../actions/questions";
@@ -20,12 +21,15 @@ class QuestionPage extends Component {
         if (!option) return alert("please, select an option!");
         dispatch(handleAddAnswer(question.id, option));
     };
+    clacWidth = (a, b) => ((a / (a + b || 1)) * 100).toFixed(2);
     render() {
         const { question } = this.props;
-        if (!question) return <></>;
-        const totalVotes =
-            question.optionOne.votes + question.optionTwo.votes || 1;
-        const vote = question.authedUserVote;
+        if (!question) {
+            alert(
+                "Question might not exist or you are not allowed to see this questions!\nYou will be redirected to home page."
+            );
+            return <Redirect to="/" />;
+        }
         return (
             <div className="dashboard leaderboard">
                 <li className="question">
@@ -43,7 +47,9 @@ class QuestionPage extends Component {
                                 <strong>Results :</strong>
                                 <span
                                     className={`option-one ${
-                                        vote === "optionOne" ? "voted" : ""
+                                        question.authedUserVote === "optionOne"
+                                            ? "voted"
+                                            : ""
                                     }`}
                                 >
                                     <span></span>
@@ -52,21 +58,29 @@ class QuestionPage extends Component {
                                         <div
                                             className="light-voted"
                                             style={{
-                                                width: `${
-                                                    (question.optionOne.votes /
-                                                        totalVotes) *
-                                                    100
-                                                }%`,
+                                                width: `${this.clacWidth(
+                                                    question.optionOne.votes,
+                                                    question.optionTwo.votes
+                                                )}%`,
                                             }}
                                         >
-                                            {question.optionOne.votes}%
+                                            {this.clacWidth(
+                                                question.optionOne.votes,
+                                                question.optionTwo.votes
+                                            )}
+                                            %
                                         </div>
                                     </div>
-                                    {`${question.optionOne.votes} out of ${totalVotes} votes`}
+                                    {`${question.optionOne.votes} out of ${
+                                        question.optionOne.votes +
+                                        question.optionTwo.votes
+                                    } votes`}
                                 </span>
                                 <span
                                     className={`option-two ${
-                                        vote === "optionTwo" ? "voted" : ""
+                                        question.authedUserVote === "optionTwo"
+                                            ? "voted"
+                                            : ""
                                     }`}
                                 >
                                     <span></span>
@@ -75,17 +89,23 @@ class QuestionPage extends Component {
                                         <div
                                             className="light-voted"
                                             style={{
-                                                width: `${
-                                                    (question.optionTwo.votes /
-                                                        totalVotes) *
-                                                    100
-                                                }%`,
+                                                width: `${this.clacWidth(
+                                                    question.optionTwo.votes,
+                                                    question.optionOne.votes
+                                                )}%`,
                                             }}
                                         >
-                                            {question.optionTwo.votes}%
+                                            {this.clacWidth(
+                                                question.optionTwo.votes,
+                                                question.optionOne.votes
+                                            )}
+                                            %
                                         </div>
                                     </div>
-                                    {`${question.optionTwo.votes} out of ${totalVotes} votes`}
+                                    {`${question.optionTwo.votes} out of ${
+                                        question.optionOne.votes +
+                                        question.optionTwo.votes
+                                    } votes`}
                                 </span>
                             </>
                         ) : (

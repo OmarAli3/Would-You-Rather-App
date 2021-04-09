@@ -1,6 +1,7 @@
 import { React, Component } from "react";
 import { connect } from "react-redux";
 import Question from "./Question";
+import RedirectLogin from "./RedirectLogin";
 
 class Dashboard extends Component {
     state = {
@@ -10,37 +11,39 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className="dashboard">
-                <nav className="question-nav">
-                    <ul>
-                        <li
-                            onClick={() => this.handleDisplayedList(false)}
-                            className={
-                                this.state.answeredList ? "" : "active-li"
-                            }
-                        >
-                            Unanswered Questions
-                        </li>
-                        <li
-                            onClick={() => this.handleDisplayedList(true)}
-                            className={
-                                this.state.answeredList ? "active-li" : ""
-                            }
-                        >
-                            Answered Questions
-                        </li>
+            <RedirectLogin>
+                <div className="dashboard">
+                    <nav className="question-nav">
+                        <ul>
+                            <li
+                                onClick={() => this.handleDisplayedList(false)}
+                                className={
+                                    this.state.answeredList ? "" : "active-li"
+                                }
+                            >
+                                Unanswered Questions
+                            </li>
+                            <li
+                                onClick={() => this.handleDisplayedList(true)}
+                                className={
+                                    this.state.answeredList ? "active-li" : ""
+                                }
+                            >
+                                Answered Questions
+                            </li>
+                        </ul>
+                    </nav>
+                    <ul className="dashboard-list">
+                        {this.state.answeredList
+                            ? this.props.answeredQuetionIds.map((id) => (
+                                  <Question key={id} id={id} />
+                              ))
+                            : this.props.unansweredQuetionIds.map((id) => (
+                                  <Question key={id} id={id} />
+                              ))}
                     </ul>
-                </nav>
-                <ul className="dashboard-list">
-                    {this.state.answeredList
-                        ? this.props.answeredQuetionIds.map((id) => (
-                              <Question key={id} id={id} />
-                          ))
-                        : this.props.unansweredQuetionIds.map((id) => (
-                              <Question key={id} id={id} />
-                          ))}
-                </ul>
-            </div>
+                </div>
+            </RedirectLogin>
         );
     }
 }
@@ -53,7 +56,7 @@ const mapStatetToProps = ({ questions, authedUser, users }) => {
         ),
         unansweredQuetionIds: Object.keys(questions)
             .filter((id) => !answers.includes(id))
-            .sort((a, b) => questions[a].timestamp - questions[b].timestamp),
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
     };
 };
 

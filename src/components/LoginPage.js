@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import {Redirect} from "react-router-dom"
 import { connect } from "react-redux";
 import Select from "react-select";
 import { VscAccount } from "react-icons/vsc";
@@ -20,29 +21,39 @@ class LoadingPage extends Component {
         authedUser && dispatch(setAuthedUser(authedUser));
     };
     render() {
-        const { users } = this.props;
+        const { users, authedUser } = this.props;
 
         return (
-            <div className="dashboard new-question login">
-                <div className="login-header">
-                    <strong>Welcome to the Would You Rather App!</strong>
-                    <span>Please, sign in to continue</span>
-                </div>
-                <form onSubmit={this.handleSubmit} className="login-form">
-                    <VscAccount className="login-icon" />
-                    <Select
-                        options={users}
-                        className="select"
-                        onChange={this.handleChange}
-                    />
-                    <button className="btn">Sign in</button>
-                </form>
-            </div>
+            <>
+                {!authedUser ? (
+                    <div className="dashboard new-question login">
+                        <div className="login-header">
+                            <strong>
+                                Welcome to the Would You Rather App!
+                            </strong>
+                            <span>Please, sign in to continue</span>
+                        </div>
+                        <form
+                            onSubmit={this.handleSubmit}
+                            className="login-form"
+                        >
+                            <VscAccount className="login-icon" />
+                            <Select
+                                options={users}
+                                className="select"
+                                onChange={this.handleChange}
+                            />
+                            <button className="btn">Sign in</button>
+                        </form>
+                    </div>
+                ) : <Redirect to="/"/>}
+            </>
         );
     }
 }
 
-const mapStateToProps = ({ users = {} }) => ({
+const mapStateToProps = ({ users = {}, authedUser }) => ({
+    authedUser,
     users: Object.keys(users).map((id) => ({
         value: id,
         label: (
