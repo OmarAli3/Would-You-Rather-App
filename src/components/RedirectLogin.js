@@ -1,10 +1,10 @@
 import { React } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import LoginPage from "./LoginPage";
 
 const RedirectLogin = (props) => {
     const { logedin, children } = props;
-    return logedin ? children : <Redirect to="/login" />;
+    return logedin ? children : <LoginPage />;
 };
 
 const mapStateToProps = ({ authedUser }, { children }) => ({
