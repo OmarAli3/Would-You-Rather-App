@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/would-you-rather/static/css/main.8aa22fd2.chunk.css",
-    "main.js": "/would-you-rather/static/js/main.a63af0a1.chunk.js",
-    "main.js.map": "/would-you-rather/static/js/main.a63af0a1.chunk.js.map",
-    "runtime-main.js": "/would-you-rather/static/js/runtime-main.2f905848.js",
-    "runtime-main.js.map": "/would-you-rather/static/js/runtime-main.2f905848.js.map",
-    "static/js/2.079893ac.chunk.js": "/would-you-rather/static/js/2.079893ac.chunk.js",
-    "static/js/2.079893ac.chunk.js.map": "/would-you-rather/static/js/2.079893ac.chunk.js.map",
-    "index.html": "/would-you-rather/index.html",
-    "static/css/main.8aa22fd2.chunk.css.map": "/would-you-rather/static/css/main.8aa22fd2.chunk.css.map",
-    "static/js/2.079893ac.chunk.js.LICENSE.txt": "/would-you-rather/static/js/2.079893ac.chunk.js.LICENSE.txt",
-    "static/media/john.c6bc6887.jpg": "/would-you-rather/static/media/john.c6bc6887.jpg",
-    "static/media/sarah.b4e09f47.jpg": "/would-you-rather/static/media/sarah.b4e09f47.jpg",
-    "static/media/tyler.cdb79b9f.jpg": "/would-you-rather/static/media/tyler.cdb79b9f.jpg"
+    "main.css": "/Would-You-Rather-App/static/css/main.8aa22fd2.chunk.css",
+    "main.js": "/Would-You-Rather-App/static/js/main.a63af0a1.chunk.js",
+    "main.js.map": "/Would-You-Rather-App/static/js/main.a63af0a1.chunk.js.map",
+    "runtime-main.js": "/Would-You-Rather-App/static/js/runtime-main.6beb4ec4.js",
+    "runtime-main.js.map": "/Would-You-Rather-App/static/js/runtime-main.6beb4ec4.js.map",
+    "static/js/2.079893ac.chunk.js": "/Would-You-Rather-App/static/js/2.079893ac.chunk.js",
+    "static/js/2.079893ac.chunk.js.map": "/Would-You-Rather-App/static/js/2.079893ac.chunk.js.map",
+    "index.html": "/Would-You-Rather-App/index.html",
+    "static/css/main.8aa22fd2.chunk.css.map": "/Would-You-Rather-App/static/css/main.8aa22fd2.chunk.css.map",
+    "static/js/2.079893ac.chunk.js.LICENSE.txt": "/Would-You-Rather-App/static/js/2.079893ac.chunk.js.LICENSE.txt",
+    "static/media/john.c6bc6887.jpg": "/Would-You-Rather-App/static/media/john.c6bc6887.jpg",
+    "static/media/sarah.b4e09f47.jpg": "/Would-You-Rather-App/static/media/sarah.b4e09f47.jpg",
+    "static/media/tyler.cdb79b9f.jpg": "/Would-You-Rather-App/static/media/tyler.cdb79b9f.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2f905848.js",
+    "static/js/runtime-main.6beb4ec4.js",
     "static/js/2.079893ac.chunk.js",
     "static/css/main.8aa22fd2.chunk.css",
     "static/js/main.a63af0a1.chunk.js"
